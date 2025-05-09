@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Café Pink Rose - Menu</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script> <!-- Add JS interactivity -->
+</head>
+<body>
+  <header class="header-flex">
+    <div class="branding">
+      <h1>Café Pink Rose</h1>
+      <p>Your Daily Dose of Delight</p>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html" class="active">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Our Delicious Menu</h1>
+
+    <!-- Menu Sections as Collapsibles -->
+    <button class="collapsible">🍜 Maggi</button>
+    <div class="content">
+      <div class="menu-item"><span>Classic Maggi</span> ₹120</div>
+      <div class="menu-item"><span>Cheese Maggi</span> ₹150</div>
+      <div class="menu-item"><span>Veg Maggi</span> ₹130</div>
+      <div class="menu-item"><span>Masala Maggi</span> ₹140</div>
+      <div class="menu-item"><span>Paneer Maggi</span> ₹160</div>
+    </div>
+
+    <button class="collapsible">🍝 Pasta</button>
+    <div class="content">
+      <div class="menu-item"><span>Classic Pasta</span> ₹200</div>
+      <div class="menu-item"><span>Cheese Pasta</span> ₹220</div>
+      <div class="menu-item"><span>Penne Alfredo</span> ₹240</div>
+      <div class="menu-item"><span>Vegetarian Pasta</span> ₹230</div>
+    </div>
+
+    <button class="collapsible">🍔 Burger & Pizza</button>
+    <div class="content">
+      <div class="menu-item"><span>Cheese Burger</span> ₹180</div>
+      <div class="menu-item"><span>Chicken Burger</span> ₹200</div>
+      <div class="menu-item"><span>Veggie Pizza</span> ₹250</div>
+      <div class="menu-item"><span>Pepperoni Pizza</span> ₹280</div>
+      <div class="menu-item"><span>BBQ Chicken Pizza</span> ₹300</div>
+    </div>
+
+    <button class="collapsible">🍹 Mocktails</button>
+    <div class="content">
+      <div class="menu-item"><span>Virgin Mojito</span> ₹180</div>
+      <div class="menu-item"><span>Blue Lagoon</span> ₹190</div>
+      <div class="menu-item"><span>Fruit Punch</span> ₹170</div>
+      <div class="menu-item"><span>Virgin Pina Colada</span> ₹210</div>
+    </div>
+
+    <button class="collapsible">🍟 French Fries</button>
+    <div class="content">
+      <div class="menu-item"><span>Classic Fries</span> ₹120</div>
+      <div class="menu-item"><span>Cheese Fries</span> ₹140</div>
+      <div class="menu-item"><span>Spicy Fries</span> ₹130</div>
+      <div class="menu-item"><span>Garlic Fries</span> ₹150</div>
+      <div class="menu-item"><span>Masala Fries</span> ₹160</div>
+    </div>
+
+    <button class="collapsible">☕ Beverages</button>
+    <div class="content">
+      <div class="menu-item"><span>Cold Coffee</span> ₹150</div>
+      <div class="menu-item"><span>Fruit Juice</span> ₹140</div>
+      <div class="menu-item"><span>Hot Coffee</span> ₹120</div>
+      <div class="menu-item"><span>Tea</span> ₹100</div>
+      <div class="menu-item"><span>Hot Chocolate</span> ₹180</div>
+    </div>
+
+    <button class="collapsible">🥪 Sandwich & Grill</button>
+    <div class="content">
+      <div class="menu-item"><span>Grilled Chicken Sandwich</span> ₹220</div>
+      <div class="menu-item"><span>Cheese Grilled Sandwich</span> ₹180</div>
+      <div class="menu-item"><span>Veg Grilled Sandwich</span> ₹190</div>
+      <div class="menu-item"><span>Chicken Kebab Wrap</span> ₹250</div>
+      <div class="menu-item"><span>Veg Kebab Wrap</span> ₹230</div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Café Pink Rose. All rights reserved.</p>
+  </footer>
+<script>
+// script.js
+document.addEventListener("DOMContentLoaded", function () {
+  const collapsibles = document.querySelectorAll(".collapsible");
+
+  collapsibles.forEach(button => {
+    button.addEventListener("click", function () {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  });
+});
+
+</script>
+</body>
+</html>

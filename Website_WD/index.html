@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Pink Rose - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+		@keyframes tonext {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: 100%;
+  }
+  98% {
+    left: 100%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes tostart {
+  75% {
+    left: 0;
+  }
+  95% {
+    left: -300%;
+  }
+  98% {
+    left: -300%;
+  }
+  99% {
+    left: 0;
+  }
+}
+
+@keyframes snap {
+  96% {
+    scroll-snap-align: center;
+  }
+  97% {
+    scroll-snap-align: none;
+  }
+  99% {
+    scroll-snap-align: none;
+  }
+  100% {
+    scroll-snap-align: center;
+  }
+}
+
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent; /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+ol, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel {
+  position: relative;
+  width: 700px;
+  height: 700px;
+  margin: 40px auto; /* centers horizontally */
+  filter: drop-shadow(0 0 10px #0003);
+  perspective: 100px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+
+.carousel__viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  counter-reset: item;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  background-color: #f99;
+  counter-increment: item;
+}
+
+.carousel__slide:nth-child(even) {
+  background-color: #99f;
+}
+
+.carousel__slide:before {
+  content: counter(item);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-40%,70px);
+  color: #fff;
+  font-size: 2em;
+}
+
+.carousel__snapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+@media (hover: hover) {
+  .carousel__snapper {
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  .carousel__slide:last-child .carousel__snapper {
+    animation-name: tostart, snap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__snapper {
+    animation-name: none;
+  }
+}
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+  animation-name: none;
+}
+
+.carousel__navigation {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.carousel__navigation-list,
+.carousel__navigation-item {
+  display: inline-block;
+}
+
+.carousel__navigation-button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #333;
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 50%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  top: 0;
+  margin-top: 37.5%;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+}
+</style>
+
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header-flex">
+    <div class="branding">
+      <h1> Café Pink Rose</h1>
+      <p>Your cozy corner for coffee and treats</p>
+    </div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Welcome Message -->
+<section id="home" style="padding: 80px 20px; text-align: center; background: linear-gradient(to right, #fce4ec, #f8bbd0); transition: background 0.5s ease;">
+  <div style="max-width: 800px; margin: 0 auto; background: #fff0f5; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" 
+       onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 6px 16px rgba(255,105,180,0.4)'" 
+       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(255,105,180,0.2)'">
+    <h2 style="font-size: 2.5em; margin-bottom: 20px; color: #c2185b; font-family: 'Georgia', serif;">Welcome to Café Pink Rose</h2>
+    <p style="font-size: 1.2em; line-height: 1.6; color: #6a1b4d;">Relax and enjoy handcrafted coffee and pastries in a warm pink-inspired ambiance.</p>
+  </div>
+</section>
+
+ 
+
+  <!-- Image Gallery Section -->
+  <section class="carousel" aria-label="Gallery">
+  <ol class="carousel__viewport">
+    <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+ 	<img src="pink1.png" alt="Slide 1" style="width:100%; height:100%; object-fit:cover;" />
+  	<div class="carousel__snapper">
+    		<a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
+    		<a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+  	</div>
+    </li>
+
+    <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+ 	<img src="pink4.png" alt="Slide 1" style="width:100%; height:100%; object-fit:cover;" />
+  	<div class="carousel__snapper">
+    		<a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
+    		<a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+  	</div>
+    </li>
+
+    <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+ 	<img src="pink3.png" alt="Slide 1" style="width:100%; height:100%; object-fit:cover;" />
+  	<div class="carousel__snapper">
+    		<a href="#carousel__slide4" class="carousel__prev">Go to last slide</a>
+    		<a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+  	</div>
+    </li>
+   
+  </ol>
+</section>
+
+
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu-section">
+    <h2>Our Menu</h2>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="home4.png" alt="Coffee" class="menu-img" height=225px width=225px>
+        <h3>Coffee</h3>
+        <p>Freshly brewed, aromatic coffee to start your day.</p>
+      </div>
+      <div class="menu-item">
+        <img src="home5.png" alt="Cake" class="menu-img">
+        <h3>Cakes</h3>
+        <p>Delicious cakes and pastries baked fresh daily.</p>
+      </div>
+      <div class="menu-item">
+        <img src="home6.png" alt="Sandwiches" class="menu-img" height=225px width=225px>
+        <h3>Sandwiches</h3>
+        <p>Handcrafted sandwiches made with the freshest ingredients.</p>
+      </div>
+    </div>
+   <center> <a href="menu.html" 
+   style="display: inline-block; padding: 12px 24px; background-color: #ec407a; color: #fff; text-decoration: none; font-weight: bold; border-radius: 6px; transition: background-color 0.3s;" 
+   onmouseover="this.style.backgroundColor='#d81b60'" 
+   onmouseout="this.style.backgroundColor='#ec407a'">
+  View Full Menu
+</a></center>
+
+
+  </section>
+
+  <!-- About Section --><br>
+<section id="about" class="about-section" style="padding: 80px 20px; background-color: #fce4ec; text-align: center;">
+  <div style="max-width: 800px; margin: 0 auto; background: #fff0f5; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2); transition: transform 0.3s ease, box-shadow 0.3s ease;" 
+       onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 6px 16px rgba(255,105,180,0.4)'" 
+       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(255,105,180,0.2)'">
+       
+    <h2 style="font-size: 2.5em; margin-bottom: 20px; color: #c2185b; font-family: 'Georgia', serif;">About Us</h2>
+    
+    <p style="font-size: 1.2em; line-height: 1.6; color: #6a1b4d; font-family: Arial, sans-serif;">
+      At <strong style="color: #d81b60;">Café Pink Rose</strong>, we believe in creating an experience, not just a place. Our cozy atmosphere and quality beverages provide a serene space for you to unwind, chat, or focus on your work.
+    </p>
+    
+    <a href="about.html" 
+       style="display: inline-block; margin-top: 25px; padding: 14px 28px; background-color: #ec407a; color: #fff; text-decoration: none; font-weight: bold; border-radius: 8px; letter-spacing: 1px; transition: background-color 0.3s;" 
+       onmouseover="this.style.backgroundColor='#d81b60'" 
+       onmouseout="this.style.backgroundColor='#ec407a'">
+      About Us
+    </a>
+  </div>
+</section>
+
+  <!-- Contact Section -->
+ <section id="contact" class="contact-section" style="padding: 80px 20px; background: linear-gradient(to right, #fce4ec, #f8bbd0); text-align: center;">
+  <div style="max-width: 800px; margin: 0 auto; background: #fff0f5; padding: 35px; border-radius: 14px; box-shadow: 0 5px 18px rgba(255,105,180,0.2); border-left: 8px solid #d81b60; transition: transform 0.4s ease, box-shadow 0.4s ease;" 
+       onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 24px rgba(255,105,180,0.4)'" 
+       onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 18px rgba(255,105,180,0.2)'">
+       
+    <h2 style="font-size: 2.6em; margin-bottom: 25px; color: #ad1457; font-family: 'Trebuchet MS', sans-serif; letter-spacing: 1px;">Contact Us</h2>
+    
+    <p style="font-size: 1.15em; line-height: 1.7; color: #6a1b4d; font-family: 'Verdana', sans-serif;">
+      We'd love to hear from you! Drop us a message or stop by for a chat over coffee.
+    </p>
+    
+    <div class="contact-details" style="margin-top: 35px; text-align: left;">
+      <div class="contact-item" style="margin-bottom: 20px; font-size: 1.15em; color: #4a0d38;">
+        <i class="fas fa-map-marker-alt" style="color: #ec407a; margin-right: 12px; transition: transform 0.3s;" 
+           onmouseover="this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.transform='scale(1)'"></i>
+        <strong>Address:</strong> Hindtara hieghts, Gr floor, Patgaon - Gargoti Rd, opp. shri sai mandir, Gargoti, Maharashtra 416209
+      </div>
+      <div class="contact-item" style="margin-bottom: 20px; font-size: 1.15em; color: #4a0d38;">
+	<a href="tel:73850 70011">
+        <i class="fas fa-phone-alt" style="color: #ec407a; margin-right: 12px; transition: transform 0.3s;" 
+           onmouseover="this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.transform='scale(1)'"></i></a>
+        <strong>Phone:</strong> +91 73850 70011
+      </div>
+      <div class="contact-item" style="margin-bottom: 20px; font-size: 1.15em; color: #4a0d38;">
+	<a href="mailto:pratikshapatil4077@gmail.com">
+        <i class="fas fa-envelope" style="color: #ec407a; margin-right: 12px; transition: transform 0.3s;" 
+           onmouseover="this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.transform='scale(1)'"></i></a>
+        <strong>Email:</strong> pratikshapatil4077@gmail.com
+      </div>   
+      <div class="contact-item" style="margin-bottom: 20px; font-size: 3.15em; color: #4a0d38;">
+        <a href="https://www.instagram.com/pinkrose_cafe_restaurant?igsh=MWFjdjNnMWl1dGxpdA==">
+           <i class="fa-brands fa-instagram" style="color: #ec407a; margin-right: 12px; transition: transform 0.3s;" 
+           onmouseover="this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.transform='scale(1)'"></i></a>
+
+        <a href="https://www.justdial.com/Kolhapur/Cafe-Pink-Rose-Opposite-Shri-Sai-Mandir-Gargoti/0231PX231-X231-231221211913-H7M6_BZDET">
+           <i class="fa-brands fa-google-plus-g" style="color: #ec407a; margin-right: 12px; transition: transform 0.3s;" 
+           onmouseover="this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.transform='scale(1)'"></i></a>
+      </div>    
+     </div>
+    
+    <a href="contact.html" 
+       style="display: inline-block; margin-top: 25px; padding: 14px 28px; background-color: #ec407a; color: #fff; text-decoration: none; font-weight: bold; border-radius: 8px; letter-spacing: 1px; transition: background-color 0.3s;" 
+       onmouseover="this.style.backgroundColor='#d81b60'" 
+       onmouseout="this.style.backgroundColor='#ec407a'">
+      Contact Us
+    </a>
+  </div>
+</section>
+
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Café Pink Rose. All rights reserved.</p>
+  </footer>
+</body>
+</html>
